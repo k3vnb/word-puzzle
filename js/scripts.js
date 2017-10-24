@@ -8,8 +8,9 @@
 $(document).ready(function() {
   $("#submission").submit(function(event) {
     event.preventDefault();
-    // var vowels = ("a", "e", "i", "o", "u");
-    var userInput = $("input#sentence").val();
+    // var vowels = ["a", "e", "i", "o", "u"];
+    var oldUserInput = $("input#sentence").val();
+    var userInput = oldUserInput.toLowerCase();
     var encoding = Array.from(userInput);
     for (var index = 0; index < userInput.length; index += 1) {
 
@@ -39,7 +40,8 @@ $(document).ready(function() {
       //   (encoding[index] = "-")
       // };
     };
-
     alert(encoding);
+    var answer = encoding.join("");
+    $("ul").prepend("<li>" + answer + "</li>");
   });
 });
